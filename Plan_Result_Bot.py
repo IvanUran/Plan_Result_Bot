@@ -24,7 +24,7 @@ async def main_function(message):
     plan_inline = None
     send_mes = False
     # print(message)
-    chat_id, mes_text, username, from_chat, message_id, plan, plan_lines = attributes_receiving_message(message)
+    mes_text, username, from_chat, message_id, plan, plan_lines = attributes_receiving_message(message)
 
     if not username in usernames_with_indices:
         usernames_with_indices[username] = ""
@@ -93,7 +93,7 @@ async def osnova_callback(call: types.CallbackQuery):
     global usernames_with_indices
 
     # print(call)
-    chat_id, mes_text, username, from_chat, message_id, plan = attributes_receiving_call(call)
+    mes_text, username, from_chat, message_id, plan = attributes_receiving_call(call)
     foo = mes_text[:20].replace("\n", "\\n")
     print(f'Новый запрос с текстом "{foo}..." от {username} из чата', from_chat)
 
