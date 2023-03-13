@@ -155,7 +155,7 @@ def plan_change(text, position, username, plan_lines, mes_text):
 
 async def mode_of_plan_handler(bot_main, message, mode_of_plan, usernames_with_indices):
     """В случае, если mode_of_plan не равно None, мы получаем """
-    chat_id, mes_text, username, from_chat, message_id, plan, plan_lines = attributes_receiving_message(message)
+    mes_text, username, from_chat, message_id, plan, plan_lines = attributes_receiving_message(message)
     add_text = ""
     if mode_of_plan != "do":
         try:
