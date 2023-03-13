@@ -72,7 +72,7 @@ async def main_function(message):
             addd_text = ""
         plan = f"*#пландня @{username + addd_text}* от `{now.strftime('%d.%m_%H:%M')}`"
         plan_inline = None
-        await bot_main.send_messёage(chat_id=from_chat, text=plan, reply_markup=plan_inline, parse_mode="Markdown")
+        await bot_main.send_message(chat_id=from_chat, text=plan, reply_markup=plan_inline, parse_mode="Markdown")
         await bot_main.send_message(chat_id=from_chat, text="Как себя чувствуешь(от 1 до 100)?")
         send_mes = False
 
