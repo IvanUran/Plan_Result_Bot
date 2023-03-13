@@ -13,8 +13,6 @@ from File_check_functions import var_create, statistics_check, mode_of_plan_chec
 def attributes_receiving_message(message):
     """Получает на входе message, а возвращает id основного чата, текст полученного сообщения, имя пользователя, id чата из которого было получено сообщение,
      id сообщения и значение переменной plan соответственно"""
-    with open('vars/chat_id.txt', 'r') as f:
-        chat_id = f.read()
     username = message["from"].username
     if not os.path.exists("vars/"+str(username)):
         os.mkdir("vars/"+str(username))
@@ -30,14 +28,12 @@ def attributes_receiving_message(message):
             plan = f.read()
     with open(f'vars/{str(username)}/plan.txt', 'r') as f:
         plan_lines = f.readlines()
-    return chat_id, mes_text, str(username), from_chat, message_id, plan, plan_lines
+    return mes_text, str(username), from_chat, message_id, plan, plan_lines
 
 
 def attributes_receiving_call(call):
     """Получает на входе message, а возвращает id основного чата, текст полученного сообщения, имя пользователя, id чата из которого было получено сообщение,
      id сообщения и значение переменной plan соответственно"""
-    with open('vars/chat_id.txt', 'r') as f:
-        chat_id = f.read()
     username = call["from"].username
     from_chat = call.message.chat.id
     mes_text = call.message.text
@@ -50,7 +46,7 @@ def attributes_receiving_call(call):
         var_create(f'vars/{str(username)}/plan.txt')
         with open(f'vars/{str(username)}/plan.txt', 'r') as f:
             plan = f.read()
-    return chat_id, mes_text, str(username), from_chat, message_id, plan
+    return mes_text, str(username), from_chat, message_id, plan
 
 
 def chart_create(username):
